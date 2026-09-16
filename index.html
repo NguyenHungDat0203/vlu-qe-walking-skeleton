@@ -1,29 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập</title>
 </head>
 <body>
+  <h2>Form đăng nhập</h2>
 
-    <h2>Login</h2>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required>
 
-    <form id="loginForm">
-        <label>Username:</label>
-        <input type="text" id="username" required>
+    <br><br>
 
-        <br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
 
-        <label>Password:</label>
-        <input type="password" id="password" required>
+    <br><br>
 
-        <br><br>
+    <button type="submit">Đăng nhập</button>
+  </form>
 
-        <button type="submit">Login</button>
-    </form>
+  <p id="message"></p>
 
-    <p id="message"></p>
+  <script src="login.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const result = checkLogin(username, password);
+
+      document.getElementById("message").textContent =
+        result ? "Đăng nhập thành công!" : "Sai username hoặc password!";
+    });
+  </script>
+</body>
+</html>
 
     <script src="login.js"></script>
 </body>
