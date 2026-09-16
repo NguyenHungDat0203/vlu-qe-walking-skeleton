@@ -1,8 +1,7 @@
 {
-  "name": "login-unit-test",
+  "name": "simple-login-jest",
   "version": "1.0.0",
-  "description": "Simple login form with Jest unit tests",
-  "main": "login.js",
+  "description": "Vi du form dang nhap va unit test bang Jest",
   "scripts": {
     "test": "jest"
   },
