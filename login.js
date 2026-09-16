@@ -1,29 +1,13 @@
-function login(user, pass) {
-    if (user === "admin" && pass === "123") {
-        return true;
-    }
-
-    return false;
+function checkLogin(user, pass) {
+  return user === "admin" && pass === "123";
 }
 
-if (typeof document !== "undefined") {
-    const form = document.getElementById("loginForm");
-    const message = document.getElementById("message");
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const user = document.getElementById("username").value;
-        const pass = document.getElementById("password").value;
-
-        if (login(user, pass)) {
-            message.textContent = "Đăng nhập thành công!";
-        } else {
-            message.textContent = "Sai username hoặc password!";
-        }
-    });
+// Hỗ trợ chạy trên trình duyệt
+if (typeof window !== "undefined") {
+  window.checkLogin = checkLogin;
 }
 
-if (typeof module !== "undefined") {
-    module.exports = login;
+// Hỗ trợ Jest / Node.js
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = checkLogin;
 }
